@@ -1,4 +1,4 @@
-# Simple two layer neural network
+# Simple two layer neural network using sigmoid activation 
 # Three input neurons and single hidden layer leading to single output
 # ---------------------
 # | Inputs  | Outputs |
@@ -14,7 +14,7 @@
 #   X	    Input dataset matrix where each row is a training example
 #   y	    Output dataset matrix where each row is a training example
 #   l0	    First Layer of the Network, specified by the input data
-#   l1	    Second Layer of the Network, otherwise known as the hidden layer
+#   l1	    Second Layer of the Network -cthe hidden layer
 #   syn0	First layer of weights, Synapse 0, connecting l0 to l1.
 #  x.dot(y)	If x and y are vectors, this is a dot product.
 #               If both are matrices, it's a matrix-matrix multiplication.
@@ -49,10 +49,10 @@ for iter in range(10000):
     l0 = X
     l1 = nonlin(np.dot(l0, syn0))
 
-    # how much did we miss?
+    # cost (error)
     l1_error = y - l1
 
-    # multiply how much we missed by the
+    # multiply cost by the
     # slope of the sigmoid at the values in l1
     l1_delta = l1_error * nonlin(l1, True)
 
